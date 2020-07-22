@@ -13,7 +13,7 @@
     ],
     "require": {
         "laravel/framework": "^6.2|^7.0",
-        "rennokki/laravel-sns-events": "^5.0"
+        "rennokki/laravel-sns-events": "^5.1"
     },
     "autoload": {
         "psr-4": {
