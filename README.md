@@ -25,6 +25,12 @@ You can install the package via composer:
 composer require renoki-co/laravel-sns-webhooks
 ```
 
+Publish the config:
+
+```bash
+$ php artisan vendor:publish --provider="RenokiCo\AwsWebhooks\AwsWebhooksServiceProvider" --tag="config"
+```
+
 ## 🙌 Usage
 
 ``` php
