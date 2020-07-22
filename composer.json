@@ -1,27 +1,28 @@
 {
-    "name": "renoki-co/:package_name",
-    "description": ":package_description",
-    "keywords": ["laravel", "php"],
+    "name": "renoki-co/laravel-sns-webhooks",
+    "description": "Easy webhook handler for Laravel to catch AWS SNS notifications for various ways.",
+    "keywords": ["laravel", "php", "sns", "aws", "webhooks", "ses", "webhook"],
     "license": "MIT",
-    "homepage": "https://github.com/renoki-co/:package_name",
+    "homepage": "https://github.com/renoki-co/laravel-sns-webhooks",
     "authors": [
         {
-            "name": ":author_name",
-            "homepage": ":author_link",
+            "name": "Alex Renoki",
+            "homepage": "https://github.com/rennokki",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.2"
+        "laravel/framework": "^6.2|^7.0",
+        "rennokki/laravel-sns-events": "^5.0"
     },
     "autoload": {
         "psr-4": {
-            "RenokiCo\\:package_namespace\\": "src/"
+            "RenokiCo\\AwsWebhooks\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RenokiCo\\:package_namespace\\Test\\": "tests"
+            "RenokiCo\\AwsWebhooks\\Test\\": "tests"
         }
     },
     "scripts": {
@@ -38,7 +39,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RenokiCo\\:package_namespace\\:package_service_provider"
+                "RenokiCo\\AwsWebhooks\\AwsWebhooksServiceProvider"
             ]
         }
     }
