@@ -1,13 +1,13 @@
 Laravel SES Webhooks
 ====================
 
-![CI](https://github.com/renoki-co/laravel-sns-webhooks/workflows/CI/badge.svg?branch=master)
-[![codecov](https://codecov.io/gh/renoki-co/laravel-sns-webhooks/branch/master/graph/badge.svg)](https://codecov.io/gh/renoki-co/laravel-sns-webhooks/branch/master)
+![CI](https://github.com/renoki-co/laravel-aws-webhooks/workflows/CI/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/renoki-co/laravel-aws-webhooks/branch/master/graph/badge.svg)](https://codecov.io/gh/renoki-co/laravel-aws-webhooks/branch/master)
 [![StyleCI](https://github.styleci.io/repos/:styleci_code/shield?branch=master)](https://github.styleci.io/repos/:styleci_code)
-[![Latest Stable Version](https://poser.pugx.org/renoki-co/laravel-sns-webhooks/v/stable)](https://packagist.org/packages/renoki-co/laravel-sns-webhooks)
-[![Total Downloads](https://poser.pugx.org/renoki-co/laravel-sns-webhooks/downloads)](https://packagist.org/packages/renoki-co/laravel-sns-webhooks)
-[![Monthly Downloads](https://poser.pugx.org/renoki-co/laravel-sns-webhooks/d/monthly)](https://packagist.org/packages/renoki-co/laravel-sns-webhooks)
-[![License](https://poser.pugx.org/renoki-co/laravel-sns-webhooks/license)](https://packagist.org/packages/renoki-co/laravel-sns-webhooks)
+[![Latest Stable Version](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/v/stable)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
+[![Total Downloads](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/downloads)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
+[![Monthly Downloads](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/d/monthly)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
+[![License](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/license)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
 
 This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
@@ -22,7 +22,7 @@ If you are using your application in your day-to-day job, on presentation demos,
 You can install the package via composer:
 
 ```bash
-composer require renoki-co/laravel-sns-webhooks
+composer require renoki-co/laravel-aws-webhooks
 ```
 
 Publish the config:

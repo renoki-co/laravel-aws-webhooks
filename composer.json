@@ -1,9 +1,9 @@
 {
-    "name": "renoki-co/laravel-sns-webhooks",
+    "name": "renoki-co/laravel-aws-webhooks",
     "description": "Easy webhook handler for Laravel to catch AWS SNS notifications for various services.",
     "keywords": ["laravel", "php", "sns", "aws", "webhooks", "ses", "webhook"],
     "license": "MIT",
-    "homepage": "https://github.com/renoki-co/laravel-sns-webhooks",
+    "homepage": "https://github.com/renoki-co/laravel-aws-webhooks",
     "authors": [
         {
             "name": "Alex Renoki",
