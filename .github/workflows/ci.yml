@@ -18,7 +18,7 @@ jobs:
       matrix:
         php: ['7.2', '7.3', '7.4']
         dep: [prefer-stable, prefer-lowest]
-    name: PHP ${{ matrix.php }}
+    name: PHP ${{ matrix.php }} --{{ matrix.dep }}
     steps:
     - uses: actions/checkout@v1
     - uses: actions/cache@v1
