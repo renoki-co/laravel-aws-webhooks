@@ -28,7 +28,7 @@ jobs:
         key: composer-php-${{ matrix.php }}-dep-${{ matrix.dep }}-${{ hashFiles('composer.json') }}
     - name: Install dependencies
       run: |
-        composer install --no-interaction --${{ matrix.dep }}
+        composer update --no-interaction --${{ matrix.dep }}
     - name: Run tests
       run: |
         phpunit --coverage-text --coverage-clover=coverage.xml
