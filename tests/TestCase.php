@@ -7,14 +7,6 @@ use Orchestra\Testbench\TestCase as Orchestra;
 abstract class TestCase extends Orchestra
 {
     /**
-     * The default topic ARN to apply in case
-     * none is specified when building messages.
-     *
-     * @var string
-     */
-    protected static $defaultTopicArn = 'arn:aws:sns:us-west-2:123456789012:MyTopic';
-
-    /**
      * {@inheritdoc}
      */
     protected function getPackageProviders($app)
@@ -37,19 +29,16 @@ abstract class TestCase extends Orchestra
      * Get an example notification payload for testing.
      *
      * @param  array  $payload
-     * @param  string|null  $topicArn
      * @return array
      */
-    protected function getNotificationPayload(array $payload = [], string $topicArn = null): array
+    protected function getNotificationPayload(array $payload = []): array
     {
         $payload = json_encode($payload);
-
-        $topicArn = $topicArn ?: static::$defaultTopicArn;
 
         return [
             'Type' => 'Notification',
             'MessageId' => '22b80b92-fdea-4c2c-8f9d-bdfb0c7bf324',
-            'TopicArn' => "{$topicArn}",
+            'TopicArn' => 'arn:aws:sns:us-west-2:123456789012:MyTopic',
             'Subject' => 'My First Message',
             'Message' => "{$payload}",
             'Timestamp' => '2012-05-02T00:54:06.655Z',

@@ -48,7 +48,7 @@ class SesWebhook extends SnsController
             if ($eventType === $callableEventType) {
                 call_user_func(
                     [$this, $methodToCall],
-                    [$decodedMessage, $snsMessage, $request]
+                    $decodedMessage, $snsMessage, $request
                 );
             }
         }
