@@ -1,4 +1,4 @@
-Laravel SES Webhooks
+Laravel AWS Webhooks
 ====================
 
 ![CI](https://github.com/renoki-co/laravel-aws-webhooks/workflows/CI/badge.svg?branch=master)
@@ -9,7 +9,9 @@ Laravel SES Webhooks
 [![Monthly Downloads](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/d/monthly)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
 [![License](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/license)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+Laravel AWS Webhooks is a fine integration of Laravel controllers that help you build fast business logic when your SNS topic gets notified. This comes handy in situations like SES when you need to unsubscribe users whose mails bounce or if they complain about it.
+
+This package leverages [renoki-co/laravel-sns-events](https://github.com/renoki-co/laravel-sns-events) that allows listening to HTTP/HTTPS requests properly.
 
 ## 🤝 Supporting
 
@@ -33,8 +35,121 @@ $ php artisan vendor:publish --provider="RenokiCo\AwsWebhooks\AwsWebhooksService
 
 ## 🙌 Usage
 
-``` php
-//
+The package comes with more controllers that will handle each service separately, so you should be implementing different topics for each controller.
+
+You should create a controller that extends once of the package controllers, based on the service you want to get SNS notifications from:
+
+- `\RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook`
+
+A controller that will handle the response for you should be extended & registered in your routes:
+
+```php
+use RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook;
+
+class MySesController extends SesWebhook
+{
+    /**
+     * Handle the Bounce event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function onBounce(array $message, array $originalMessage, Request $request)
+    {
+        // Unsubscribe the user from newsletter in case of bounce.
+
+        foreach ($message['bounce']['bouncedRecipients'] as $recipient) {
+            if ($user = User::whereEmail($recipient['emailAddress'])->first()) {
+                $user->update([
+                    'subscribed' => false,
+                ]);
+            }
+        }
+    }
+}
+```
+
+```php
+// You can choose any route.
+Route::any('/aws/sns/ses', 'MySesController@handle');
+```
+
+You will need an AWS account and register a SNS Topic and set up a subscription for HTTP(s) protocol that will point out to the route you just registered.
+
+Make sure to enable RAW JSON format for your SNS Subscription.
+
+SNS sends data as raw json, so you will need to whitelist your route in your `VerifyCsrfToken.php`:
+
+```php
+protected $except = [
+    ...
+    'aws/sns/ses/',
+];
+```
+
+If you have registered the route and created a SNS Topic, you should register the URL and click the confirmation button from the AWS Dashboard. In a short while, if you implemented the route well, you'll be seeing that your endpoint is registered.
+
+## Simple Email Service (SES)
+
+Simple Email Service integrates with SNS to send notifications regarding mails. For example, you can catch bouncers or click/opens for various addresses.
+
+All methods accept the same parameters.
+
+```php
+use RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook;
+
+class MySesController extends SesWebhook
+{
+    /**
+     * Handle the Bounce event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function onComplaint(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
+    protected function onDelivery(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
+    protected function onSend(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
+    protected function onReject(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
+    protected function onOpen(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
+    protected function onClick(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
+    protected function onRenderingFailure(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
+    protected function onDeliveryDelay(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+}
 ```
 
 ## 🐛 Testing
