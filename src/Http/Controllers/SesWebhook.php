@@ -3,12 +3,19 @@
 namespace RenokiCo\AwsWebhooks\Http\Controllers;
 
 use Illuminate\Http\Request;
-use RenokiCo\AwsWebhooks\Concerns\FiltersTopicArns;
 use Rennokki\LaravelSnsEvents\Http\Controllers\SnsController;
 
 class SesWebhook extends SnsController
 {
-    use FiltersTopicArns;
+    /**
+     * List the allowed SNS Topic ARNs
+     * that are allowed to run the business logic.
+     *
+     * @var array
+     */
+    protected static $allowedTopicArns = [
+        //
+    ];
 
     /**
      * Associate each SNS `eventType` value
@@ -52,6 +59,20 @@ class SesWebhook extends SnsController
                 );
             }
         }
+    }
+
+    /**
+     * Check if the topic ARN from
+     * the SNS message is whitelisted.
+     *
+     * @param  array  $snsMessage
+     * @return bool
+     */
+    protected function shouldAllow(array $snsMessage): bool
+    {
+        return in_array(
+            $snsMessage['TopicArn'] ?? null, static::$allowedTopicArns
+        );
     }
 
     /**
