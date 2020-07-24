@@ -92,6 +92,29 @@ protected $except = [
 
 If you have registered the route and created a SNS Topic, you should register the URL and click the confirmation button from the AWS Dashboard. In a short while, if you implemented the route well, you'll be seeing that your endpoint is registered.
 
+## Whitelisting Topic ARNs
+
+When receiving the SNS messages to your endpoint, it's good to filter them out. To do it, specify an `$allowedTopicArns` static attribute on your extended controller.
+
+The package will filter out any messages coming from other topic ARNs.
+
+```php
+use RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook;
+
+class MySesController extends SesWebhook
+{
+    /**
+     * List the allowed SNS Topic ARNs
+     * that are allowed to run the business logic.
+     *
+     * @var array
+     */
+    protected static $allowedTopicArns = [
+        'arn:aws:sns:us-west-2:123456789012:MyTopic',
+    ];
+}
+```
+
 ## Simple Email Service (SES)
 
 Simple Email Service integrates with SNS to send notifications regarding mails. For example, you can catch bouncers or click/opens for various addresses.
