@@ -2,8 +2,6 @@
 
 namespace RenokiCo\AwsWebhooks\Test;
 
-use RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook;
-
 class CloudwatchTest extends TestCase
 {
     public function test_callable_methods()
