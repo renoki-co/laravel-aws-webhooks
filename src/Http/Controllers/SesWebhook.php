@@ -54,46 +54,118 @@ class SesWebhook extends SnsController
         }
     }
 
+    /**
+     * Handle the Bounce event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onBounce(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the Bounce event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onComplaint(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the Delivery event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onDelivery(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the Send event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onSend(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the Reject event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onReject(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the Open event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onOpen(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the Click event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onClick(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the Rendering Failure event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onRenderingFailure(array $message, array $originalMessage, Request $request)
     {
         //
     }
 
+    /**
+     * Handle the DeliveryDelay event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     protected function onDeliveryDelay(array $message, array $originalMessage, Request $request)
     {
         //
