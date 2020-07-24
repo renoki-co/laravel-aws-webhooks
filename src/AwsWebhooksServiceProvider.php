@@ -13,13 +13,7 @@ class AwsWebhooksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../config/aws-webhooks.php' => config_path('aws-webhooks.php'),
-        ], 'config');
-
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/aws-webhooks.php', 'aws-webhooks'
-        );
+        //
     }
 
     /**

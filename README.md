@@ -27,12 +27,6 @@ You can install the package via composer:
 composer require renoki-co/laravel-aws-webhooks
 ```
 
-Publish the config:
-
-```bash
-$ php artisan vendor:publish --provider="RenokiCo\AwsWebhooks\AwsWebhooksServiceProvider" --tag="config"
-```
-
 ## 🙌 Usage
 
 The package comes with more controllers that will handle each service separately, so you should be implementing different topics for each controller.
