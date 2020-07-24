@@ -3,7 +3,7 @@ Laravel AWS Webhooks
 
 ![CI](https://github.com/renoki-co/laravel-aws-webhooks/workflows/CI/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/renoki-co/laravel-aws-webhooks/branch/master/graph/badge.svg)](https://codecov.io/gh/renoki-co/laravel-aws-webhooks/branch/master)
-[![StyleCI](https://github.styleci.io/repos/:styleci_code/shield?branch=master)](https://github.styleci.io/repos/:styleci_code)
+[![StyleCI](https://github.styleci.io/repos/281713043/shield?branch=master)](https://github.styleci.io/repos/281713043)
 [![Latest Stable Version](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/v/stable)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
 [![Total Downloads](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/downloads)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
 [![Monthly Downloads](https://poser.pugx.org/renoki-co/laravel-aws-webhooks/d/monthly)](https://packagist.org/packages/renoki-co/laravel-aws-webhooks)
