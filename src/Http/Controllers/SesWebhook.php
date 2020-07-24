@@ -28,6 +28,7 @@ class SesWebhook extends SnsController
         'Complaint' => 'onComplaint',
         'Delivery' => 'onDelivery',
         'Send' => 'onSend',
+        'Reject' => 'onReject',
         'Open' => 'onOpen',
         'Click' => 'onClick',
         'Rendering Failure' => 'onRenderingFailure',
