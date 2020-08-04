@@ -71,11 +71,7 @@ class MySesController extends SesWebhook
 Route::any('/aws/sns/ses', 'MySesController@handle');
 ```
 
-You will need an AWS account and register a SNS Topic and set up a subscription for HTTP(s) protocol that will point out to the route you just registered.
-
-Make sure to enable RAW JSON format for your SNS Subscription.
-
-SNS sends data as raw json, so you will need to whitelist your route in your `VerifyCsrfToken.php`:
+Make sure to to whitelist your route in your `VerifyCsrfToken.php`:
 
 ```php
 protected $except = [
