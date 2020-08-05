@@ -2,17 +2,22 @@
 
 namespace RenokiCo\AwsWebhooks\Test\Controllers;
 
+use Aws\Sns\MessageValidator;
+use Illuminate\Http\Request;
 use RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook;
 
 class SesController extends SesWebhook
 {
     /**
-     * List the allowed SNS Topic ARNs
-     * that are allowed to run the business logic.
+     * Get the message validator instance.
      *
-     * @var array
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Aws\Sns\MessageValidator
      */
-    protected static $allowedTopicArns = [
-        'arn:aws:sns:us-west-2:123456789012:MyTopic',
-    ];
+    protected function getMessageValidator(Request $request)
+    {
+        return new MessageValidator(function ($url) use ($request) {
+            return $request->certificate ?: $url;
+        });
+    }
 }

@@ -8,16 +8,6 @@ use Rennokki\LaravelSnsEvents\Http\Controllers\SnsController;
 class SesWebhook extends SnsController
 {
     /**
-     * List the allowed SNS Topic ARNs
-     * that are allowed to run the business logic.
-     *
-     * @var array
-     */
-    protected static $allowedTopicArns = [
-        //
-    ];
-
-    /**
      * Associate each SNS `eventType` value
      * with a callable method from this class.
      *
@@ -44,10 +34,6 @@ class SesWebhook extends SnsController
      */
     protected function onNotification(array $snsMessage, Request $request): void
     {
-        if (! $this->shouldAllow($snsMessage)) {
-            return;
-        }
-
         $decodedMessage = json_decode($snsMessage['Message'], true);
 
         $eventType = $decodedMessage['eventType'] ?? null;
@@ -60,20 +46,6 @@ class SesWebhook extends SnsController
                 );
             }
         }
-    }
-
-    /**
-     * Check if the topic ARN from
-     * the SNS message is whitelisted.
-     *
-     * @param  array  $snsMessage
-     * @return bool
-     */
-    protected function shouldAllow(array $snsMessage): bool
-    {
-        return in_array(
-            $snsMessage['TopicArn'] ?? null, static::$allowedTopicArns
-        );
     }
 
     /**
