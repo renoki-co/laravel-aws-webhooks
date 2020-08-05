@@ -43,7 +43,6 @@ abstract class TestCase extends Orchestra
         $app['config']->set('app.key', 'wslxrEFGWY6GfGhvN9L3wH3KSRJQQpBD');
     }
 
-
     /**
      * Get the SES message for mails.
      *
