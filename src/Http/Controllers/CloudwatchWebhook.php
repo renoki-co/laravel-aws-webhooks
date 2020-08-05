@@ -8,16 +8,6 @@ use Rennokki\LaravelSnsEvents\Http\Controllers\SnsController;
 class CloudwatchWebhook extends SnsController
 {
     /**
-     * List the allowed SNS Topic ARNs
-     * that are allowed to run the business logic.
-     *
-     * @var array
-     */
-    protected static $allowedTopicArns = [
-        //
-    ];
-
-    /**
      * Handle logic at the controller level on notification.
      *
      * @param  array  $snsMessage
@@ -26,10 +16,6 @@ class CloudwatchWebhook extends SnsController
      */
     protected function onNotification(array $snsMessage, Request $request): void
     {
-        if (! $this->shouldAllow($snsMessage)) {
-            return;
-        }
-
         $decodedMessage = json_decode($snsMessage['Message'], true);
 
         $state = $decodedMessage['NewStateValue'] ?? null;
@@ -40,20 +26,6 @@ class CloudwatchWebhook extends SnsController
             case 'INSUFFICIENT_DATA': $this->onInsufficientData($decodedMessage, $snsMessage, $request); break;
             default: break;
         }
-    }
-
-    /**
-     * Check if the topic ARN from
-     * the SNS message is whitelisted.
-     *
-     * @param  array  $snsMessage
-     * @return bool
-     */
-    protected function shouldAllow(array $snsMessage): bool
-    {
-        return in_array(
-            $snsMessage['TopicArn'] ?? null, static::$allowedTopicArns
-        );
     }
 
     /**
