@@ -7,14 +7,14 @@ class CloudwatchTest extends TestCase
     public function test_callable_methods()
     {
         $payloads = [
-            $this->getCloudwatchNotificationPayload('ALARM', 'OK'),
-            $this->getCloudwatchNotificationPayload('OK', 'ALARM'),
-            $this->getCloudwatchNotificationPayload('INSUFFICIENT_DATA', 'OK'),
+            $this->getCloudwatchMessage('ALARM', 'OK'),
+            $this->getCloudwatchMessage('OK', 'ALARM'),
+            $this->getCloudwatchMessage('INSUFFICIENT_DATA', 'OK'),
         ];
 
         foreach ($payloads as $payload) {
-            $this
-                ->json('GET', route('cloudwatch'), $payload)
+            $this->withHeaders($this->getHeadersForMessage($payload))
+                ->json('GET', route('cloudwatch', ['certificate' => static::$certificate]), $payload)
                 ->assertSee('OK');
         }
     }

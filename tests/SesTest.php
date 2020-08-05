@@ -9,8 +9,10 @@ class SesTest extends TestCase
     public function test_callable_methods()
     {
         foreach (SesWebhook::$eventTypesWithCalledMethod as $callableEventType => $methodToCall) {
-            $this
-                ->json('GET', route('ses'), $this->getSesMessage($callableEventType))
+            $payload = $this->getSesMessage($callableEventType);
+
+            $this->withHeaders($this->getHeadersForMessage($payload))
+                ->json('GET', route('ses', ['certificate' => static::$certificate]), $payload)
                 ->assertSee('OK');
         }
     }
