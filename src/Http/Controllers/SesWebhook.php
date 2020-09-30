@@ -62,7 +62,7 @@ class SesWebhook extends SnsController
     }
 
     /**
-     * Handle the Bounce event.
+     * Handle the Complaint event.
      *
      * @param  array  $message
      * @param  array  $originalMessage
