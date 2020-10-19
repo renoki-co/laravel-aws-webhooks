@@ -19,7 +19,7 @@ class EventbridgeWebhook extends SnsController
     {
         $decodedMessage = json_decode($snsMessage['Message'], true);
 
-        $service = Str::of($decodedMessage['source'])->after('aws.')->ucFirst();
+        $service = Str::ucfirst(Str::after($decodedMessage['source'], 'aws.'));
 
         $methodToCall = "on{$service}Event";
 
