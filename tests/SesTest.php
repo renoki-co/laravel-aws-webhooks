@@ -2,8 +2,6 @@
 
 namespace RenokiCo\AwsWebhooks\Test;
 
-use RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook;
-
 class SesTest extends TestCase
 {
     public function test_calling_existing_method()
