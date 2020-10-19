@@ -8,14 +8,6 @@ use Rennokki\LaravelSnsEvents\Http\Controllers\SnsController;
 
 class EventbridgeWebhook extends SnsController
 {
-    protected static $methods = [
-        'aws.autoscaling' => 'onAutoscalingEvent',
-        'aws.ec2' => 'onEc2Event',
-        'aws.emr' => 'onEmrEvent',
-        'aws.gamelift' => 'onGameliftEvent',
-        'aws.health' => 'onHealthEvent',
-    ];
-
     /**
      * Handle logic at the controller level on notification.
      *
