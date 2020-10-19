@@ -224,9 +224,9 @@ For example, you might have this EC2 Spot Termination notice:
 Because the source is called `aws.ec2`, you should create a `onEc2Event` method within your extended class:
 
 ```php
-use RenokiCo\AwsWebhooks\Http\Controllers\EventbridgeWebhook;
+use RenokiCo\AwsWebhooks\Http\Controllers\EventBridge;
 
-class MyEventbridgeController extends EventbridgeWebhook
+class MyEventBridgeController extends EventBridgeWebhook
 {
     /**
      * Handle the EC2 events.

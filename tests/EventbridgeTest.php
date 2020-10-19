@@ -2,7 +2,7 @@
 
 namespace RenokiCo\AwsWebhooks\Test;
 
-class EventbridgeTest extends TestCase
+class EventBridgeTest extends TestCase
 {
     public function test_call_with_existing_event()
     {

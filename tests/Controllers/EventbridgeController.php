@@ -4,9 +4,9 @@ namespace RenokiCo\AwsWebhooks\Test\Controllers;
 
 use Aws\Sns\MessageValidator;
 use Illuminate\Http\Request;
-use RenokiCo\AwsWebhooks\Http\Controllers\EventbridgeWebhook;
+use RenokiCo\AwsWebhooks\Http\Controllers\EventBridgeWebhook;
 
-class EventbridgeController extends EventbridgeWebhook
+class EventBridgeController extends EventBridgeWebhook
 {
     /**
      * Get the message validator instance.
