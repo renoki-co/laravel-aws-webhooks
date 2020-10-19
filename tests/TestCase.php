@@ -147,7 +147,7 @@ abstract class TestCase extends Orchestra
                         'players' => [
                             ['playerId' => 'player-1'],
                         ],
-                    ]
+                    ],
                 ],
                 'estimatedWaitMillis' => 'NOT_AVAILABLE',
                 'type' => 'MatchmakingSearching',
