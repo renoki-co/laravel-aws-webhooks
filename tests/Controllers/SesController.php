@@ -20,4 +20,17 @@ class SesController extends SesWebhook
             return $request->certificate ?: $url;
         });
     }
+
+    /**
+     * Handle the Rendering Failure event.
+     *
+     * @param  array  $message
+     * @param  array  $originalMessage
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function onRenderingFailure(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
 }
