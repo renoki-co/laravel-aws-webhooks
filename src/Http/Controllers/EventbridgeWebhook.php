@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Rennokki\LaravelSnsEvents\Http\Controllers\SnsController;
 
-class EventBridgeWebhook extends SnsController
+class EventbridgeWebhook extends SnsController
 {
     /**
      * Handle logic at the controller level on notification.
