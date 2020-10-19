@@ -95,4 +95,68 @@ abstract class TestCase extends Orchestra
             ],
         ]);
     }
+
+    /**
+     * Get an example EC2 notification payload.
+     *
+     * @return array
+     */
+    public function getEc2Message(): array
+    {
+        return $this->getNotificationPayload([
+            'version' => 0,
+            'id' => '72d6566c-e6bd-117d-5bbc-2779c679abd5',
+            'detail-type' => 'EC2 Spot Instance Interruption Warning',
+            'source' => 'aws.ec2',
+            'account' => '12345678910',
+            'time' => '2020-03-06T08:25:40Z',
+            'region' => 'eu-west-1',
+            'resources' => [
+                'arn:aws:ec2:eu-west-1a:instance/i-0cefe48f36d7c281a',
+            ],
+            'detail' => [
+                'instance-id' => 'i-0cefe48f36d7c281a',
+                'instance-action' => 'terminate',
+            ],
+        ]);
+    }
+
+    /**
+     * Get an example Gamelift notification payload.
+     *
+     * @return array
+     */
+    public function getGameliftMessage(): array
+    {
+        return $this->getNotificationPayload([
+            'version' => 0,
+            'id' => '72d6566c-e6bd-117d-5bbc-2779c679abd5',
+            'detail-type' => 'GameLift Matchmaking Event',
+            'source' => 'aws.gamelift',
+            'account' => '12345678910',
+            'time' => '2020-03-06T08:25:40Z',
+            'region' => 'eu-west-1',
+            'resources' => [
+                'arn:aws:gamelift:us-west-2:123456789012:matchmakingconfiguration/SampleConfiguration',
+            ],
+            'detail' => [
+                'tickets' => [
+                    [
+                        'ticketId' => 'ticket-1',
+                        'startTime' => '2017-08-08T21:15:35.676Z',
+                        'players' => [
+                            ['playerId' => 'player-1'],
+                        ],
+                    ]
+                ],
+                'estimatedWaitMillis' => 'NOT_AVAILABLE',
+                'type' => 'MatchmakingSearching',
+                'gameSessionInfo' => [
+                    'players' => [
+                        ['playerId' => 'player-1'],
+                    ],
+                ],
+            ],
+        ]);
+    }
 }
