@@ -12,7 +12,10 @@
         }
     ],
     "require": {
-        "laravel/framework": "^6.0|^7.0|^8.0",
+        "php": "^7.1",
+        "ext-json": "*",
+        "illuminate/http": "^6.0|^7.0|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0",
         "rennokki/laravel-sns-events": "^6.0"
     },
     "autoload": {
@@ -35,6 +38,7 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
