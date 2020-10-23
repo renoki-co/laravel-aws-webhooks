@@ -191,7 +191,7 @@ class MyCloudwatchController extends CloudwatchWebhook
      * @param  \Illuminate\Http\Request  $request
      * @return void
      */
-    protected function onInsufficientData(array $message, array $originalMessage, Request $request)
+    protected function onInsufficientDataState(array $message, array $originalMessage, Request $request)
     {
         //
     }
