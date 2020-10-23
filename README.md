@@ -35,6 +35,7 @@ You should create a controller that extends once of the package controllers, bas
 
 - `\RenokiCo\AwsWebhooks\Http\Controllers\SesWebhook`
 - `\RenokiCo\AwsWebhooks\Http\Controllers\CloudwatchWebhook`
+- `\RenokiCo\AwsWebhooks\Http\Controllers\EventbridgeWebhook`
 
 A controller that will handle the response for you should be extended & registered in your routes:
 
