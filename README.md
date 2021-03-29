@@ -106,6 +106,11 @@ class MySesController extends SesWebhook
      * @param  \Illuminate\Http\Request  $request
      * @return void
      */
+     protected function onBounce(array $message, array $originalMessage, Request $request)
+    {
+        //
+    }
+
     protected function onComplaint(array $message, array $originalMessage, Request $request)
     {
         //
