@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\AwsWebhooks\Test\Concerns;
+namespace RenokiCo\AwsWebhooks\Concerns;
 
 use Aws\Sns\Message;
 use Aws\Sns\MessageValidator;
