@@ -253,6 +253,45 @@ class MyEventbridgeController extends EventbridgeWebhook
 }
 ```
 
+## Testing SES Controllers
+
+The package comes with a `GeneratesSnsMessages`-trait to create a valid SES payload to be used for your tests.
+Use the trait like in the example below to get started writing tests for your own controllers.
+
+```php
+use RenokiCo\AwsWebhooks\Concerns\GeneratesSnsMessages;
+
+class MySesControllerTest extends TestCase
+{
+    use GeneratesSnsMessages;
+
+    public static function setUpBeforeClass(): void
+    {
+        static::initializeSsl();
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        static::tearDownSsl();
+    }
+
+    public function getSesMessage(string $type): array
+    {
+        return $this->getNotificationPayload([
+            'eventType' => $type,
+        ]);
+    }
+
+    public function test_my_ses_controller()
+    {
+        $payload = $this->getSesMessage('Bounce');
+
+        $response = $this->withHeaders($this->getHeadersForMessage($payload))
+            ->json('GET', route('ses', ['certificate' => static::$certificate]), $payload);
+    }
+}
+```
+
 ## 🐛 Testing
 
 ``` bash
