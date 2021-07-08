@@ -3,10 +3,11 @@
 namespace RenokiCo\AwsWebhooks\Test;
 
 use Orchestra\Testbench\TestCase as Orchestra;
+use RenokiCo\AwsWebhooks\Concerns\GeneratesSnsMessages;
 
 abstract class TestCase extends Orchestra
 {
-    use \RenokiCo\AwsWebhooks\Concerns\GeneratesSnsMessages;
+    use GeneratesSnsMessages;
 
     /**
      * {@inheritdoc}
