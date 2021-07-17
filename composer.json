@@ -14,7 +14,7 @@
     "require": {
         "illuminate/http": "^7.30|^8.23",
         "illuminate/support": "^7.30|^8.23",
-        "rennokki/laravel-sns-events": "^6.3"
+        "rennokki/laravel-sns-events": "^6.4"
     },
     "autoload": {
         "psr-4": {
