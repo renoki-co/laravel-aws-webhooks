@@ -19,8 +19,7 @@ class SesWebhook extends SnsController
     {
         $decodedMessage = json_decode($snsMessage['Message'], true);
 
-        $typeKey = (array_key_exists("eventType", $decodedMessage) ? "eventType" : "notificationType");
-
+        $typeKey = array_key_exists('eventType', $decodedMessage) ? 'eventType' : 'notificationType';
         $eventType = $decodedMessage[$typeKey] ?? null;
 
         $methodToCall = 'on'.Str::studly($eventType);
