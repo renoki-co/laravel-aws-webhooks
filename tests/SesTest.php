@@ -8,8 +8,7 @@ class SesTest extends TestCase
     {
         $payload = $this->getSesMessage('Rendering Failure');
 
-        $this->withHeaders($this->getHeadersForMessage($payload))
-            ->json('GET', route('ses', ['certificate' => static::$certificate]), $payload)
+        $this->sendSnsMessage(route('ses'), $payload)
             ->assertSee('OK');
     }
 
@@ -17,8 +16,7 @@ class SesTest extends TestCase
     {
         $payload = $this->getSesMessage('Bounce');
 
-        $this->withHeaders($this->getHeadersForMessage($payload))
-            ->json('GET', route('ses', ['certificate' => static::$certificate]), $payload)
+        $this->sendSnsMessage(route('ses'), $payload)
             ->assertSee('OK');
     }
 }

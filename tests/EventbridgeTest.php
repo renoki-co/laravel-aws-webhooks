@@ -8,8 +8,7 @@ class EventbridgeTest extends TestCase
     {
         $payload = $this->getGameliftMessage();
 
-        $this->withHeaders($this->getHeadersForMessage($payload))
-            ->json('GET', route('eventbridge', ['certificate' => static::$certificate]), $payload)
+        $this->sendSnsMessage(route('eventbridge'), $payload)
             ->assertSee('OK');
     }
 
@@ -17,8 +16,7 @@ class EventbridgeTest extends TestCase
     {
         $payload = $this->getEc2Message();
 
-        $this->withHeaders($this->getHeadersForMessage($payload))
-            ->json('GET', route('eventbridge', ['certificate' => static::$certificate]), $payload)
+        $this->sendSnsMessage(route('eventbridge'), $payload)
             ->assertSee('OK');
     }
 }

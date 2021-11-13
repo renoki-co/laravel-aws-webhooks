@@ -13,8 +13,7 @@ class CloudwatchTest extends TestCase
         ];
 
         foreach ($payloads as $payload) {
-            $this->withHeaders($this->getHeadersForMessage($payload))
-                ->json('GET', route('cloudwatch', ['certificate' => static::$certificate]), $payload)
+            $this->sendSnsMessage(route('cloudwatch'), $payload)
                 ->assertSee('OK');
         }
     }
