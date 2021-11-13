@@ -9,19 +9,6 @@ use RenokiCo\AwsWebhooks\Http\Controllers\EventbridgeWebhook;
 class EventbridgeController extends EventbridgeWebhook
 {
     /**
-     * Get the message validator instance.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Aws\Sns\MessageValidator
-     */
-    protected function getMessageValidator(Request $request)
-    {
-        return new MessageValidator(function ($url) use ($request) {
-            return $request->certificate ?: $url;
-        });
-    }
-
-    /**
      * Handle the event coming from Autoscaling.
      *
      * @param  array  $message
