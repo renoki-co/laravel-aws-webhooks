@@ -2,7 +2,6 @@
 
 namespace RenokiCo\AwsWebhooks\Test\Controllers;
 
-use Aws\Sns\MessageValidator;
 use Illuminate\Http\Request;
 use RenokiCo\AwsWebhooks\Http\Controllers\CloudwatchWebhook;
 
