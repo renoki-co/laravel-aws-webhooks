@@ -21,7 +21,7 @@ Laravel AWS Webhooks leverages [renoki-co/laravel-sns-events](https://github.com
 
 ## 📃 Documentation
 
-[The entire documentation is available on Gitbook 🌍](https://rennokki.gitbook.io/laravel-aws-sns/aws-webhooks/introduction)
+[The entire documentation is available on Gitbook 🌍](https://laravel-sns-events.renoki.org/aws-webhooks/introduction)
 
 ## 🐛 Testing
 
